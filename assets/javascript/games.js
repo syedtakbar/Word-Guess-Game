@@ -9,14 +9,19 @@
 
         const inputLtr = event.key.toLocaleLowerCase();
         
-        if (!(inputLtr.length === 1 && inputLtr.match(/[a-z]/i).length > 0 ) ||
+        if ((movieGame.isGameStarted === false) &&  
+            (inputLtr === "enter"))
+        {
+            //Need to add a welcome message...
+            movieGame.domInstructionElem.innerHTML = "Welcome !!!";
+        }
+        else if (!(inputLtr.length === 1 && inputLtr.match(/[a-z]/i).length > 0 ) || 
             (movieGame.letterGuessedArray.indexOf(inputLtr) !== -1))
         {
-            console.log("invalid input "  + inputLtr);
+            // console.log("invalid input "  + inputLtr);
             return;
         }
-         
-    
+          
         if (movieGame.isGameStarted === false)
         {
             movieGame.isGameStarted = true;
@@ -24,9 +29,7 @@
         }
 
         if (movieGame.isGameOver === true)
-        {
-            // movieGame.domInstructionElem.innerHTML = "Please refresh the browser to restart the game!";
-
+        {            
             setTimeout(function() {
                 movieGame.ResetMessage();
             }, 5000);
@@ -55,9 +58,6 @@
             return;
         }
 
-
-        //now let's try to match it
-
         document.querySelectorAll(".movie-box").forEach(function(node){ 
           
               if (inputLtr === node.value)
@@ -82,24 +82,15 @@
             movieGame.isGameWon = true;
             movieGame.domInstructionElem.innerHTML = "You have won !!!";
 
-            // setTimeout(function() {
-            //     movieGame.ResetMessage();
-            // }, 5000);
-
             movieGame.domMoviePane.style.display = "block";
-            
-
-            console.log("movie  title "  + randomTitle  + " url " + movieUrl);
-            movieGame.domMoviePane.innerHTML = movieUrl;
+                        
+            movieGame.domMoviePane.innerHTML = movieGame.movieUrl;
             movieGame.domMoviePane.focus();
 
             window.location.hash = '#moviePane';
 
             return;
-        }
-
-        //end match
-        
+        }        
     }
     
     let movieGame = {
@@ -123,7 +114,7 @@
             this.numberOfGuesses = NUM_OF_GUESSES;
             this.domNumOfGuessesElem.innerText = this.numberOfGuesses;  
 
-            this.domInstructionElem.innerHTML = "Press any valid letter key to get started";             
+            this.domInstructionElem.innerHTML = "Press enter key to get started";             
             this.domLetterAlreadyGussedElem.innerText = "";    
             this.domHintText.innerText = "";
 
@@ -154,6 +145,11 @@
                 title: "fargo", 
                 url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/EB4PmbfG4bw?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
                 hint: "Coen brothers famous crime drama" 
+            },
+            { 
+                title: "goodfellas", 
+                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
+                hint: "Martin Scorsese Mob drama" 
             }
         ],
 
@@ -193,14 +189,14 @@
         genRandomGuess:  function() {
 
             const randIndex = Math.floor(Math.random() * this.movies.length);
-            randomTitle = this.movies[randIndex].title;
-            movieHint = this.movies[randIndex].hint;
-            movieUrl = this.movies[randIndex].url;
+            this.randomTitle = this.movies[randIndex].title;
+            this.movieHint = this.movies[randIndex].hint;
+            this.movieUrl = this.movies[randIndex].url;
 
             this.domCurrWordElem.innerHTML = "";
 
-            this.genDashBoxes (randomTitle);
+            this.genDashBoxes (this.randomTitle);
             
-            this.domHintText.innerHTML = "<small> hint: " + movieHint + "</small>";     
+            this.domHintText.innerHTML = "<small> hint: " + this.movieHint + "</small>";     
         },        
     };
