@@ -8,26 +8,25 @@
     document.onkeyup = function(event) {
 
         const inputLtr = event.key.toLocaleLowerCase();
-        
-        if ((movieGame.isGameStarted === false) &&  
-            (inputLtr === "enter"))
-        {
-            //Need to add a welcome message...
+
+
+        if (inputLtr === "enter")
+        {        
+            if (movieGame.isGameStarted === true) 
+            {
+                return;
+            }
+
             movieGame.domInstructionElem.innerHTML = "Welcome !!!";
+            movieGame.isGameStarted = true;
+            movieGame.genRandomGuess();           
         }
         else if (!(inputLtr.length === 1 && inputLtr.match(/[a-z]/i).length > 0 ) || 
             (movieGame.letterGuessedArray.indexOf(inputLtr) !== -1))
         {
-            // console.log("invalid input "  + inputLtr);
             return;
         }
-          
-        if (movieGame.isGameStarted === false)
-        {
-            movieGame.isGameStarted = true;
-            movieGame.genRandomGuess();
-        }
-
+            
         if (movieGame.isGameOver === true)
         {            
             setTimeout(function() {
@@ -36,15 +35,17 @@
 
             return;
         }
-       
-        movieGame.domInstructionElem.innerHTML  = "";
+               
         movieGame.numberOfGuesses--;
         movieGame.domNumOfGuessesElem.innerText  = movieGame.numberOfGuesses
 
-        movieGame.letterGuessedArray.push(inputLtr);
-
-        movieGame.letterGuessedDisplay = movieGame.letterGuessedDisplay + " " + inputLtr;           
-        movieGame.domLetterAlreadyGussedElem.innerText = movieGame.letterGuessedDisplay;
+        if (inputLtr.length === 1)
+        {
+            movieGame.letterGuessedArray.push(inputLtr);
+            movieGame.letterGuessedDisplay = movieGame.letterGuessedDisplay + " " + inputLtr;           
+            movieGame.domLetterAlreadyGussedElem.innerText = movieGame.letterGuessedDisplay;
+        }
+        
             
         if (movieGame.numberOfGuesses === 0)
         {
@@ -150,6 +151,11 @@
                 title: "goodfellas", 
                 url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
                 hint: "Martin Scorsese Mob drama" 
+            },
+            { 
+                title: "braveheart", 
+                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/nMft5QDOHek?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
+                hint: "Mel Gibson character begins a revolt against King Edward I of England" 
             }
         ],
 
