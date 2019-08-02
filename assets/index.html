@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Word Guess Game - 90's Movie Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>        
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>    
+
+   <!-- Image and text --> 
+   <nav class="navbar navbar-light"  style="background-color:rebeccapurple;">
+    <a class="navbar-brand mr-sm-2" style="color:#e3f2fd;text-align: center">        
+        
+    </a>
+    </nav>   
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-12">
+                <div class="jumbotron">    
+                    <h1>Word Guess Game - 90's one word movie title</h1>    
+                    <br> 
+                    <div class="row">
+                            <div class='col-md-6'>
+                                <span id="instruction-text"></span>
+                            </div>     
+                            <div class='col-md-6'>
+                                <span id="hint-text"></span>
+                            </div>     
+                    </div>                  
+                    <!-- <br>
+                    <p><span id="instruction-text"></span></p> -->
+                    <hr>                 
+                    <br>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-3"></div>
+                        <div class="col-md-offset-2 col-md-6">
+                            <div id="currentword-text"></div>
+                        </div>    
+                        <div class="col-md-offset-2 col-md-3"></div>                                             
+                    </div>
+                    <br>
+                </div>                  
+                <div class="row">
+                        <div class='col-md-12'>
+                            <div class="jumbotron">    
+                        
+                                <h4>Wins :          <span id="numofwins-text"></span></h4>
+                                <br>                                                        
+                                <h4>Number of guesses remaining :  <span id="numberofguesses-text"></span></h4>
+                                <br>
+                                <h4>Letter already guessed :  <span id="letterguessed-text"></span></h4>
+                                <br>
+                            </div>
+                        </div>
+                </div>
+                <div id="moviePane">
+                <br>
+                <hr>
+                <br>
+                <div class="row">
+                        <div class='col-md-2'></div>
+                        <div class='col-md-8'>
+                            <iframe width="560" height="315" id="movieFrame" src="https://www.youtube.com/embed/GxCNDpvGyss?controls=0&amp;start=14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>    
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/2e-eXJ6HgkQ?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/EB4PmbfG4bw?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                        <!-- <div class='col-md-8'>
+                            <div id="article" style="color: black; background-color:whitesmoke"></div>
+                        </div>                       -->
+                        <div class='col-md-2'></div>
+                </div>     
+                <div class="row">
+                    <div class="col">
+                            <br>
+                            <hr>
+                            <br>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div>
+    <script src='./javascript/games.js'></script> 
+</body>
+</html>
