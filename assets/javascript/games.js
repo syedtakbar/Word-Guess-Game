@@ -104,8 +104,7 @@
     
     let movieGame = {
 
-        domInstructionElem: document.getElementById("instruction-text"),
-        domNumOfWinsElem: document.getElementById("numofwins-text"),
+        domInstructionElem: document.getElementById("instruction-text"),        
         domCurrWordElem: document.getElementById("currentword-text"),
         domNumOfGuessesElem: document.getElementById("numberofguesses-text"),
         domLetterAlreadyGussedElem: document.getElementById("letterguessed-text"),
@@ -124,8 +123,7 @@
             this.numberOfGuesses = NUM_OF_GUESSES;
             this.domNumOfGuessesElem.innerText = this.numberOfGuesses;  
 
-            this.domInstructionElem.innerHTML = "Press any key get started";
-            this.domNumOfWinsElem.innerText = "";            
+            this.domInstructionElem.innerHTML = "Press any key get started";             
             this.domLetterAlreadyGussedElem.innerText = "";    
             this.domHintText.innerText = "";
 

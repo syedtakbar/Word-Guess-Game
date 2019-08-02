@@ -25,6 +25,10 @@ body {
 
 #moviePane {
     text-align: center;
+    border-radius: 8px;
+    border: 2px solid yellow;
+    padding: 10px;
+    margin: 10px;
 }
 
 #movieFrame {
