@@ -172,11 +172,7 @@
             randomTitle = this.movies[randIndex].title;
             movieHint = this.movies[randIndex].hint;
             movieUrl = this.movies[randIndex].url;
-
-            // console.log(this.movies);
-            // console.log("movie hint: " + movieHint);
-            // console.log("movie url: " + movieUrl);
-
+            
             this.domCurrWordElem.innerHTML = "";
 
             this.genDashBoxes (randomTitle);
