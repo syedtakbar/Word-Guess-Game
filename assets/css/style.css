@@ -22,3 +22,11 @@ body {
     opacity: .92;
     text-align: center;
 }
+
+#moviePane {
+    text-align: center;
+}
+
+#movieFrame {
+    text-align: center;
+}

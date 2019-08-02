@@ -82,9 +82,18 @@
             movieGame.isGameWon = true;
             movieGame.domInstructionElem.innerHTML = "You have won !!!";
 
-            setTimeout(function() {
-                movieGame.ResetMessage();
-            }, 5000);
+            // setTimeout(function() {
+            //     movieGame.ResetMessage();
+            // }, 5000);
+
+            movieGame.domMoviePane.style.display = "block";
+            
+
+            console.log("movie  title "  + randomTitle  + " url " + movieUrl);
+            movieGame.domMoviePane.innerHTML = movieUrl;
+            movieGame.domMoviePane.focus();
+
+            window.location.hash = '#moviePane';
 
             return;
         }
@@ -123,6 +132,8 @@
             this.domCurrWordElem.style.display = "none";                          
             this.domMoviePane.style.display = "none";
 
+            this.domMoviePane.innerHTML = "";
+
             this.letterGuessedArray = []; 
 
             this.letterGuessedDisplay = "";
@@ -132,18 +143,18 @@
         [
             { 
               title: "rushmore", 
-              url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/GxCNDpvGyss?controls=0&amp;start=14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
+              url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/GxCNDpvGyss?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
               hint: "One of the best movie of Wes Anderson about a preparatory School" 
             },
 
             { 
                 title: "titanic", 
-                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2e-eXJ6HgkQ?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> ',
+                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2e-eXJ6HgkQ?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
                 hint: "Won the best movie Oscar of 1998" 
             },
             { 
                 title: "fargo", 
-                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/EB4PmbfG4bw?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
+                url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/EB4PmbfG4bw?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
                 hint: "Coen brothers famous crime drama" 
             }
         ],
