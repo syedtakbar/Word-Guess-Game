@@ -58,7 +58,36 @@
 
         //now let's try to match it
 
+        document.querySelectorAll(".movie-box").forEach(function(node){ 
+          
+              if (inputLtr === node.value)
+              {                 
+                const h1Elem = document.createElement("h1");
+                h1Elem.textContent = inputLtr;
+                node.appendChild(h1Elem);
+              }              
+        })
 
+        let isMissMatch = false;
+        document.querySelectorAll(".movie-box").forEach(function(node){           
+                        
+            if (node.innerText !== node.value)
+            {                 
+                isMissMatch = true;
+            }              
+        }) 
+
+        if (isMissMatch === false)
+        {
+            movieGame.isGameWon = true;
+            movieGame.domInstructionElem.innerHTML = "You have won !!!";
+
+            setTimeout(function() {
+                movieGame.ResetMessage();
+            }, 5000);
+
+            return;
+        }
 
         //end match
         
@@ -78,15 +107,16 @@
         
 
 
-        ResetMessage: function  (){
+        ResetMessage: function  () {
 
             this.isGameOver = false;
             this.isGameStarted  = false;
+            this.isGameWon = false;
             this.numberOfGuesses = NUM_OF_GUESSES;
             this.domNumOfGuessesElem.innerText = this.numberOfGuesses;  
 
             this.domInstructionElem.innerHTML = "Press any key get started";
-            this.domNumOfWinsElem.innerText = "0";            
+            this.domNumOfWinsElem.innerText = "";            
             this.domLetterAlreadyGussedElem.innerText = "";    
             this.domHintText.innerText = "";
 
@@ -130,40 +160,25 @@
         
         isGameOver: false,
         isGameStarted: false,
+        isGameWon: false,
 
         genDashBoxes : function (movieTitle) {
-            
-        //     <button id="button-1" class="btn btn-danger btn-choice" value="1">
-        //     <h1>1</h1>
-        //   </button>
-        //   <button id="button-2" class="btn btn-danger btn-choice" value="2">
-        //     <h1>2</h1>
-        //   </button>
-        //   <button id="button-3" class="btn btn-danger btn-choice" value="3">
-        //     <h1>3</h1>
-        //   </button>
-        //   <button id="button-4" class="btn btn-danger btn-choice" value="4">
-        //     <h1>4</h1>
-        //   </button>
-
+        
             this.domCurrWordElem.style.display = "block";
             for (let i = 0; i < movieTitle.length; i++)
             {
                 const titleBtnElem = document.createElement("button");
                 const h1Elem = document.createElement("h1");
 
-                titleBtnElem.setAttribute("class", "btn btn-outline-warning btn-md m-2 p-2 btn-choice");
+                titleBtnElem.setAttribute("class", "btn btn-outline-warning btn-md m-2 p-2 btn-choice movie-box");
                 titleBtnElem.setAttribute("value", movieTitle.charAt(i));
 
                 h1Elem.textContent = movieTitle.charAt(i);
-                titleBtnElem.appendChild(h1Elem);
+                //titleBtnElem.appendChild(h1Elem);
 
                 this.domCurrWordElem.appendChild(titleBtnElem);
                                                
             }
-            
-
-
         },
 
         genRandomGuess:  function() {
@@ -172,7 +187,7 @@
             randomTitle = this.movies[randIndex].title;
             movieHint = this.movies[randIndex].hint;
             movieUrl = this.movies[randIndex].url;
-            
+
             this.domCurrWordElem.innerHTML = "";
 
             this.genDashBoxes (randomTitle);
