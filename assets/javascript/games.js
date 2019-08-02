@@ -123,7 +123,7 @@
             this.numberOfGuesses = NUM_OF_GUESSES;
             this.domNumOfGuessesElem.innerText = this.numberOfGuesses;  
 
-            this.domInstructionElem.innerHTML = "Press any key get started";             
+            this.domInstructionElem.innerHTML = "Press any valid letter key to get started";             
             this.domLetterAlreadyGussedElem.innerText = "";    
             this.domHintText.innerText = "";
 
