@@ -134,7 +134,7 @@
             { 
               title: "rushmore", 
               url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/GxCNDpvGyss?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
-              hint: "One of the best movie of Wes Anderson about a preparatory School" 
+              hint: "One of the best movie of Wes Anderson about a preparatory school" 
             },
 
             { 
