@@ -150,7 +150,7 @@
             { 
                 title: "goodfellas", 
                 url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y?controls=0;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 
-                hint: "Martin Scorsese Mob drama" 
+                hint: "Martin Scorsese mob drama" 
             },
             { 
                 title: "braveheart", 
